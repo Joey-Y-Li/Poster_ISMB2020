@@ -48,29 +48,28 @@
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 
 \noindent
-\begin{minipage}[b]{0.8\linewidth}
 {\veryHuge\color{NavyBlue} \textbf{DELPHI: accurate deep ensemble model for protein interaction sites prediction}}\\ % Title
-
-\smallskip
 
 \noindent
 \begin{minipage}[m]{0.5\linewidth}
  \color{Black}
-\huge \textbf{Yiwei Li$^1$, G.~Brian Golding$^2$, and Lucian Ilie$^{1*}$}\\ % Author(s)
+\huge \textbf{Yiwei Li$^1$, G.~Brian Golding$^2$, and Lucian Ilie$^{1,*}$}\\ % Author(s)
 \huge $^1$ University of Western Ontario, CANADA\\ % University/organization
 \huge $^2$ McMaster University, CANADA\\ % University/organization
-%\Large \texttt{nkhiste@uwo.ca, ilie@uwo.ca}\\
 {\normalsize $^*$Corresponding author: \texttt{ilie@uwo.ca}}
 \end{minipage}
 %
 \begin{minipage}[m]{0.5\linewidth}
-%\hspace{9cm}
-\includegraphics[width=12cm]{uwo_logo.jpg}
-\includegraphics[width=11cm]{Poster_Li/figures/mcmaster_logo.png}\\
+\begin{minipage}[m]{0.38\linewidth}
+\includegraphics[width=13cm]{uwo_logo.jpg}
+\hspace*{200pt}\includegraphics[width=6cm]{nserc_logo.jpg}
 \end{minipage}
+\begin{minipage}[m]{0.3\linewidth}
+\includegraphics[width=10cm]{figures/mcmaster_logo2.jpg}
 \end{minipage}
-\begin{minipage}[b]{0.2\linewidth}
-\hfill\includegraphics[width=10cm]{Poster_Li/figures/ismb2020.jpg}
+\begin{minipage}[m]{0.3\linewidth}
+\includegraphics[width=10cm]{figures/ismb2020.jpg}
+\end{minipage}
 \end{minipage}
 
 \vspace{1cm} % A bit of extra whitespace between the header and poster content
@@ -95,7 +94,7 @@
 
 \section*{\color{NavyBlue}Abstract}
 \begin{itemize}
-  \item Protein-protein interaction (PPI) binding sites prediction -- an vital problem in system biology
+  \item Protein-protein interaction (PPI) binding sites prediction -- an vital problem for biology
   \begin{itemize}
   \item Experimental methods are time and labor intensive
   \item Many computational approaches are proposed: sequence-based ones are very promising
@@ -115,7 +114,8 @@
 \vspace*{-30pt}
 
 \section*{\color{NavyBlue}Results}
-\centering
+\centering\small
+
 %\begin{minipage}{0.6\linewidth}
 \resizebox{0.65\textwidth}{!}{\begin{tabular}{@{}l*{5}{r}@{}}
     \toprule
@@ -208,27 +208,37 @@
 \end{mdframed}
 
 \begin{mdframed}[linewidth=7pt]
-\begin{minipage}[b]{0.48\linewidth}
+
+\vspace*{-30pt}
+
+\section*{\color{NavyBlue}Ablation study}
+
+\begin{minipage}[m]{0.46\linewidth}
 %\raggedright
 %\vspace*{10pt}
 \centering 
-\hspace*{40pt}{\includegraphics[width=0.8\linewidth]{Poster_Li/remove_features_individually_Testing.pdf}}
+\hspace*{40pt}{\includegraphics[width=0.8\linewidth]{remove_features_individually_Testing.pdf}}
 \vspace*{10pt}
 \captionof{figure}{\color{Green}The areas under PR curves with the removal of one out of the twelve features on Dset\_448. One feature is removed each time, and the DELPHI model is trained, validated, and tested using the remaining eleven features. The x-axis shows the removed features where 'None' indicates using all twelve features, and the y-axis is the AUPRC achieved. The features are sorted decreasingly by the AUPRC values. \label{fig:remove_feature}}
 \end{minipage}
 \hfill
-\begin{minipage}[b]{0.48\linewidth}
+\begin{minipage}[m]{0.50\linewidth}
 %\raggedleft
 %\vspace*{-30pt}
 \centering 
-\color{Black}{\includegraphics[width=0.95\linewidth]{Poster_Li/CNN_RNN_ensemble.pdf}}
+\color{Black}{\includegraphics[width=\linewidth]{CNN_RNN_ensemble.pdf}}
 \captionof{figure}{\color{Green} The evaluation of the DELPHI model architecture and the three novel features. The area under PR curves (left) and MCC (right) are plotted separately. Each plot contains the performance of using CNN, RNN, and the ensemble model on Dset\_448. Two different colors indicate with and without the three new features.\label{fig:cnn_rnn_feature_evaluation}}
 \end{minipage}
 \end{mdframed}
 
 \begin{mdframed}[linewidth=7pt]
+
+\vspace*{-30pt}
+
+\section*{\color{NavyBlue}Evolutionary conservation}
+
 \begin{center}
-\color{Black}{\includegraphics[width=1.0\linewidth]{Poster_Li/figures/combined_conver.png}}
+\color{Black}{\includegraphics[width=1.0\linewidth]{figures/combined_conver.png}}
 \captionof{figure}{\color{Green} Three proteins were evaluated to compare the PPI
 predicted by DELPHI (green and orange) with the degree of site-by-site conservation
 (blue).  Only sites represented in ten or more taxa are included resulting
@@ -246,21 +256,24 @@ and (c) SH2D2A. \label{fig:conservation}}
 
 \vspace*{-30pt}
 
-\section*{\color{NavyBlue} Methods}
+\section*{\color{NavyBlue}Methods}
 \subsection*{Model Architecture} 
 \begin{center}
-\color{Black}{\includegraphics[width=1.0\linewidth]{Poster_Li/Model_architecture.pdf}}
+\color{Black}{\includegraphics[width=1.0\linewidth]{Model_architecture.pdf}}
 \captionof{figure}{\color{Green} The architecture of DELPHI. Left: the CNN component of the model. Middle: the RNN component of the model. Right: The ensemble model. \label{fig:model_arch}}
 \end{center}
 % \end{mdframed}
 \subsection*{Model Input and Output} 
 \begin{center}
-\color{Black}{\includegraphics[width=1.0\linewidth]{Poster_Li/many_2_one.pdf}}
+\color{Black}{\includegraphics[width=1.0\linewidth]{many_2_one.pdf}}
 \captionof{figure}{\color{Green} The many-to-one prediction. Sliding windows of size 31, stride 1 are put on top of an input protein sequence. Each time, a sub-sequence of length 31 is extracted. The model predicts the protein-binding propensity of the middle amino acid for each sub-sequence. \label{fig:many_2_one}}
 \end{center}
+\end{mdframed}
 
-\subsection*{Input Features and the DELPHI Web Server} 
-\begin{minipage}[b]{0.47\linewidth}
+\noindent
+\begin{minipage}[b]{0.495\linewidth}
+\begin{mdframed}[linewidth=7pt]
+\subsection*{Input Features} 
 \begin{center}
     \resizebox{0.9\textwidth}{!}{\begin{tabular}{@{}ll@{}r@{}}
     \toprule
@@ -282,14 +295,17 @@ and (c) SH2D2A. \label{fig:conservation}}
     \end{tabular}}
       \captionof{table}{\color{Green}The feature names, computation programs, and dimensions of each feature used by DELPHI. The first three features are novel.}
 \end{center}
-\end{minipage}
-% \vspace*{-20pt}
-\begin{minipage}[b]{0.48\linewidth}
-\centering 
-\color{Black}{\includegraphics[width=\linewidth]{Poster_Li/figures/delphi_web.png}}
-\captionof{figure}{\color{Green} The interface of the DELPHI web server. It takes protein sequences in FASTA format as input, and the result will be emailed to the user. \label{fig:web_server}}
-\end{minipage}
 \end{mdframed}
+\end{minipage}
+\begin{minipage}[b]{0.495\linewidth}
+\begin{mdframed}[linewidth=7pt]
+\subsection*{\color{NavyBlue}DELPHI Web Server}
+\centering 
+\color{Black}{\includegraphics[width=.82\linewidth]{figures/delphi_web.png}}
+\captionof{figure}{\color{Green} The interface of the DELPHI web server. It takes protein sequences in FASTA format as input, and the result will be emailed to the user. \label{fig:web_server}}
+\end{mdframed}
+\end{minipage}
+
 
 \begin{mdframed}[linewidth=7pt]
 %----------------------------------------------------------------------------------------
@@ -300,7 +316,7 @@ and (c) SH2D2A. \label{fig:conservation}}
 \vspace*{-30pt}
 \section*{\color{NavyBlue}Conclusions}
 \begin{itemize}
-  \item DELPHI is a more accurate sequence-based PPI sites predictor.
+  \item DELPHI is the most accurate sequence-based PPI sites predictor.
   \item The three novel features and the ensemble architecture can be potentially used in other protein sequence classifiers. 
 \end{itemize}
 \end{mdframed}
@@ -313,7 +329,7 @@ and (c) SH2D2A. \label{fig:conservation}}
 
 \vspace*{-20pt}
 \section*{Availability} 
-The source code of DELPHI is freely available from \texttt{https://github.com/lucian-ilie/DELPHI/}.\\
+The source code of DELPHI is freely available from \texttt{github.com/lucian-ilie/DELPHI/}.\\
 All datasets and results as well the DELPHI web server is available from \texttt{www.csd.uwo.ca/\texttildelow{}yli922/index.php}.
 \vspace*{-20pt}
 \nocite{*} % Print all references regardless of whether they were cited in the poster or not
